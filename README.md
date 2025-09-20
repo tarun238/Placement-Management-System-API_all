@@ -6,22 +6,22 @@ A robust backend system for a web-based Placement Management System, built with 
 
 ## ✨ Features
 
-* Modular Architecture: Follows a clean Controller-Service-Repository pattern for maintainability.
-* Comprehensive Data Management: Full CRUD (Create, Read, Update, Delete) operations for all key entities.
-* Relational Data Integrity: Manages relationships between students, colleges, and certificates.
-* User & Admin Roles: Separate endpoints for managing system users and administrators.
-* Secure Configuration: Uses a .gitignore and a local profile to protect sensitive database credentials from being committed to version control.
+* **Modular Architecture**: Follows a clean Controller-Service-Repository pattern for maintainability.
+* **Comprehensive Data Management**: Full CRUD (Create, Read, Update, Delete) operations for all key entities.
+* **Relational Data Integrity**: Manages relationships between students, colleges, and certificates.
+* **User & Admin Roles**: Separate endpoints for managing system users and administrators.
+* **Secure Configuration**: Uses a `.gitignore` and a local profile to protect sensitive database credentials from being committed to version control.
 
 ---
 
-## 🛠 Technologies Used
+## 🛠️ Technologies Used
 
-* Backend: Java 21, Spring Boot 3
-* Database: PostgreSQL
-* Data Access: Spring Data JPA (Hibernate)
-* API Testing: Postman
-* Build Tool: Apache Maven
-* Utilities: Lombok
+* **Backend**: Java 21, Spring Boot 3
+* **Database**: PostgreSQL
+* **Data Access**: Spring Data JPA (Hibernate)
+* **API Testing**: Postman
+* **Build Tool**: Apache Maven
+* **Utilities**: Lombok
 
 ---
 
@@ -29,38 +29,38 @@ A robust backend system for a web-based Placement Management System, built with 
 
 Follow these instructions to get a local copy up and running.
 
-### Prerequisites
+### **Prerequisites**
 
 * Java Development Kit (JDK) 21 or later
 * Apache Maven
 * PostgreSQL
 * Postman (or a similar API client)
 
-### Setup and Installation
+### **Setup and Installation**
 
-1.  Clone the repository:
-    sh
+1.  **Clone the repository:**
+    ```sh
     git clone [https://github.com/0YogeshKumar/Placement-Managment-System.git](https://github.com/0YogeshKumar/Placement-Managment-System.git)
     cd Placement-Managment-System
-    
+    ```
 
-2.  Database Configuration:
-    * Open PostgreSQL and create a new database named placement_db.
-    * Navigate to src/main/resources/.
+2.  **Database Configuration:**
+    * Open PostgreSQL and create a new database named `placement_db`.
+    * Navigate to `src/main/resources/`.
 
-3.  Create a local properties file:
-    * Create a new file named application-local.properties.
+3.  **Create a local properties file:**
+    * Create a new file named `application-local.properties`.
     * Add your database password to this file:
-        properties
+        ```properties
         spring.datasource.password=your_secret_password_here
-        
-    * The main application.properties is already configured to use this file.
+        ```
+    * The main `application.properties` is already configured to use this file.
 
-4.  Run the application:
-    sh
+4.  **Run the application:**
+    ```sh
     mvn spring-boot:run
-    
-    The application will start on http://localhost:8080.
+    ```
+    The application will start on `http://localhost:8080`.
 
 ---
 
@@ -68,78 +68,78 @@ Follow these instructions to get a local copy up and running.
 
 Below are the available endpoints for each module, along with sample request bodies.
 
-### Admin
+### **Admin**
 
 Handles administrator data.
 
-* *POST /api/admins/* - Adds a new admin.
-    json
+* **`POST /api/admins/`** - Adds a new admin.
+    ```json
     {
         "name": "Super Admin",
         "password": "secure_password_123"
     }
-    
-* *GET /api/admins/* - Retrieves all admins.
+    ```
+* **`GET /api/admins/`** - Retrieves all admins.
 
 ---
 
-### User
+### **User**
 
 Handles general user data.
 
-* *POST /api/users/* - Adds a new user.
-    json
+* **`POST /api/users/`** - Adds a new user.
+    ```json
     {
         "name": "Placement Officer",
         "type": "Coordinator",
         "password": "user_pass_456"
     }
-    
-* *GET /api/users/* - Retrieves all users.
+    ```
+* **`GET /api/users/`** - Retrieves all users.
 
 ---
 
-### College
+### **College**
 
-Handles college data. Note: A college must be created before creating a student.
+Handles college data. *Note: A college must be created before creating a student.*
 
-* *POST /api/colleges/* - Adds a new college.
-    json
+* **`POST /api/colleges/`** - Adds a new college.
+    ```json
     {
         "collegeAdmin": "Dr. Jane Doe",
         "collegeName": "Global Institute of Technology",
         "location": "Bengaluru"
     }
-    
-* *GET /api/colleges/* - Retrieves all colleges.
+    ```
+* **`GET /api/colleges/`** - Retrieves all colleges.
 
 ---
 
-### Certificate
+### **Certificate**
 
-Handles certificate data. Note: A certificate must be created before creating a student.
+Handles certificate data. *Note: A certificate must be created before creating a student.*
 
-* *POST /api/certificates/* - Adds a new certificate.
-    json
+* **`POST /api/certificates/`** - Adds a new certificate.
+    ```json
     {
         "certificateName": "Certified Spring Professional",
         "year": 2025,
         "college": "Global Institute of Technology"
     }
-    
-* *GET /api/certificates/* - Retrieves all certificates.
-* *GET /api/certificates/{id}* - Retrieves a certificate by its ID.
-* *PUT /api/certificates/{id}* - Updates an existing certificate.
-* *DELETE /api/certificates/{id}* - Deletes a certificate.
+    ```
+* **`GET /api/certificates/`** - Retrieves all certificates.
+* **`GET /api/certificates/{id}`** - Retrieves a certificate by its ID.
+* **`PUT /api/certificates/{id}`** - Updates an existing certificate.
+* **`DELETE /api/certificates/{id}`** - Deletes a certificate.
 
 ---
 
-### Placement
+### **Placement**
 
 Handles placement drive information.
 
-* *POST /api/placements/* - Adds a new placement drive.
-    json
+* **`POST /api/placements/`** - Adds a new placement drive.
+    ```json
     {
         "name": "TechCorp Campus Drive 2025",
         "college": "Global Institute of Technology",
@@ -147,26 +147,26 @@ Handles placement drive information.
         "qualification": "B.E. in CS/IT",
         "year": 2025
     }
-    
-* *GET /api/placements/* - Retrieves all placements.
-* *GET /api/placements/{id}* - Retrieves a placement by its ID.
-* *DELETE /api/placements/{id}* - Deletes a placement.
+    ```
+* **`GET /api/placements/`** - Retrieves all placements.
+* **`GET /api/placements/{id}`** - Retrieves a placement by its ID.
+* **`DELETE /api/placements/{id}`** - Deletes a placement.
 
 ---
 
-### Student
+### **Student**
 
-Handles student profile data. Important: You must provide the id of an existing College and Certificate when creating a new student.
+Handles student profile data. **Important**: You must provide the `id` of an existing College and Certificate when creating a new student.
 
-* *POST /api/students/* - Adds a new student.
-    json
+* **`POST /api/students/`** - Adds a new student.
+    ```json
     {
-        "name": "Yogesh Kumar",
-        "roll": 419,
+        "name": "Tarun CR",
+        "roll": 415,
         "qualification": "B.E.",
         "course": "Computer Science and Engineering",
         "year": 2025,
-        "hallTicketNo": 987654,
+        "hallTicketNo": 9649513,
         "college": {
             "id": 1
         },
@@ -174,8 +174,8 @@ Handles student profile data. Important: You must provide the id of an existing 
             "id": 1
         }
     }
-    
-* *GET /api/students/* - Retrieves all students.
-* *GET /api/students/{id}* - Retrieves a student by their ID.
-* *GET /api/students/hallticket/{hallTicketNo}* - Retrieves a student by hall ticket number.
-* *DELETE /api/students/{id}* - Deletes a student.
+    ```
+* **`GET /api/students/`** - Retrieves all students.
+* **`GET /api/students/{id}`** - Retrieves a student by their ID.
+* **`GET /api/students/hallticket/{hallTicketNo}`** - Retrieves a student by hall ticket number.
+* **`DELETE /api/students/{id}`** - Deletes a student.
