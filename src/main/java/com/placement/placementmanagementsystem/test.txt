@@ -1,0 +1,56 @@
+POST /api/admins/ - Adds a new admin.
+    {
+        "name": "Super Admin",
+        "password": "secure_password_123"
+    }
+
+
+POST /api/users/ - Adds a new user.
+    {
+        "name": "Placement Officer",
+        "type": "Coordinator",
+        "password": "user_pass_456"
+    }
+
+
+POST /api/colleges/ - Adds a new college.
+    {
+        "collegeAdmin": "Dr. Jane Doe",
+        "collegeName": "Global Institute of Technology",
+        "location": "Bengaluru"
+    }
+
+
+POST /api/certificates/ - Adds a new certificate.
+    {
+        "certificateName": "Certified Spring Professional",
+        "year": 2025,
+        "college": "Global Institute of Technology"
+    }
+
+
+POST /api/placements/ - Adds a new placement drive.
+    {
+        "name": "TechCorp Campus Drive 2025",
+        "college": "Global Institute of Technology",
+        "date": "2025-10-20",
+        "qualification": "B.E. in CS/IT",
+        "year": 2025
+    }
+
+
+POST /api/students/ - Adds a new student.
+    {
+        "name": "The Rock",
+        "roll": 419,
+        "qualification": "B.E.",
+        "course": "Computer Science and Engineering",
+        "year": 2025,
+        "hallTicketNo": 987654,
+        "college": {
+            "id": 1
+        },
+        "certificate": {
+            "id": 1
+        }
+    }
